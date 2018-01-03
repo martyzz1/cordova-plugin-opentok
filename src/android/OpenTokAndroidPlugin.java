@@ -80,7 +80,7 @@ public class OpenTokAndroidPlugin extends CordovaPlugin
         public class CustomComparator implements Comparator<RunnableUpdateViews> {
             @Override
             public int compare(RunnableUpdateViews object1, RunnableUpdateViews object2) {
-                return object2.getZIndex() - object1.getZIndex();
+                return object1.getZIndex() - object2.getZIndex();
             }
         }
 
