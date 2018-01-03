@@ -403,12 +403,6 @@ TBPublisher = (function() {
     position = getPosition(this.domId);
     TBUpdateObjects();
     OT.getHelper().eventing(this);
-    console.log('JS - TBPublisher: ratios.widthRatio = ' + ratios.widthRatio);
-    console.log('JS - TBPublisher: ratios.heightRatio = ' + ratios.heightRatio);
-    console.log('JS - TBPublisher: position.top = ' + position.top);
-    console.log('JS - TBPublisher: position.left = ' + position.left);
-    console.log('JS - TBPublisher: width = ' + position.width);
-    console.log('JS - TBPublisher: height = ' + height);
     Cordova.exec(TBSuccess, TBError, OTPlugin, "initPublisher", [name, position.top, position.left, width, height, zIndex, publishAudio, publishVideo, cameraName, ratios.widthRatio, ratios.heightRatio, audioFallbackEnabled, audioBitrate, audioSource, videoSource, frameRate, resolution]);
     Cordova.exec(this.eventReceived, TBSuccess, OTPlugin, "addEvent", ["publisherEvents"]);
   }
@@ -695,7 +689,7 @@ TBSession = (function() {
     element = streamElements[elementId];
     if (element) {
       element.parentNode.removeChild(element);
-      delete streamElements[elementId];
+      delete streamElements[streamId];
       TBUpdateObjects();
     }
     return Cordova.exec(TBSuccess, TBError, OTPlugin, "unsubscribe", [subscriber.streamId]);
