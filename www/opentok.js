@@ -1,3 +1,5 @@
+(function() {
+    window.jasmine = {getEnv: function () {}};
 window.OT = {
   checkSystemRequirements: function() {
     return 1;
@@ -3571,4 +3573,11 @@ OTHelpers.centerElement = function(element, width, height) {
     }
   };
 
+  //Tiny hack to make the plugin work with
+  //https://github.com/aullman/OpenTok-Angular
+  window.OT.$ = window.OTHelpers;
+
+
 })(window, window.OTHelpers);
+})();
+
