@@ -165,7 +165,7 @@ var OTPublisherError, OTReplacePublisher, TBError, TBGenerateDomHelper, TBGetScr
 streamElements = {};
 
 getPosition = function(divName) {
-  var computedStyle, curleft, curtop, height, marginBottom, marginLeft, marginRight, marginTop, pubDiv, width;
+  var computedStyle, curleft, curtop, height, marginBottom, marginLeft, marginRight, marginTop, pubDiv, width, result;
   pubDiv = document.getElementById(divName);
   if (!pubDiv) {
     return {};
@@ -175,20 +175,37 @@ getPosition = function(divName) {
   height = pubDiv.offsetHeight;
   curtop = pubDiv.offsetTop;
   curleft = pubDiv.offsetLeft;
+  console.log("JS: getPosition - divName: " + divName);
+  console.log("JS: getPosition - width: " + width);
+  console.log("JS: getPosition - height: " + height);
+  console.log("JS: getPosition - curleft: " + curleft);
+  console.log("JS: getPosition - curtop: " + curtop);
   while ((pubDiv = pubDiv.offsetParent)) {
     curleft += pubDiv.offsetLeft;
     curtop += pubDiv.offsetTop;
   }
+  console.log("JS: getPosition 2 - curleft: " + curleft);
+  console.log("JS: getPosition 2 - curtop: " + curtop);
   marginTop = parseInt(computedStyle.marginTop) || 0;
   marginBottom = parseInt(computedStyle.marginBottom) || 0;
   marginLeft = parseInt(computedStyle.marginLeft) || 0;
   marginRight = parseInt(computedStyle.marginRight) || 0;
-  return {
+  console.log("JS: getPosition - marginTop: " + marginTop);
+  console.log("JS: getPosition - marginBottom: " + marginBottom);
+  console.log("JS: getPosition - marginLeft: " + marginLeft);
+  console.log("JS: getPosition - marginRight: " + marginRight);
+  result = {
     top: curtop + marginTop,
     left: curleft + marginLeft,
     width: width - (marginLeft + marginRight),
     height: height - (marginTop + marginBottom)
   };
+
+  console.log("JS: getPosition Final - top: " + result.top);
+  console.log("JS: getPosition Final - left: " + result.left);
+  console.log("JS: getPosition Final - width: " + result.width);
+  console.log("JS: getPosition Final - height: " + result.height);
+  return result;
 };
 
 replaceWithVideoStream = function(divName, streamId, properties) {
