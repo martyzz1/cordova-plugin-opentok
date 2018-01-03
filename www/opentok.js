@@ -343,12 +343,20 @@ TBPublisher = (function() {
     var audioBitrate, audioFallbackEnabled, audioSource, cameraName, frameRate, height, name, position, publishAudio, publishVideo, ratios, resolution, videoSource, width, zIndex, _ref, _ref1, _ref2, _ref3, _ref4, _ref5, _ref6, _ref7, _ref8, _ref9;
     this.sanitizeInputs(one, two);
     pdebug("creating publisher", {});
+    console.log("JS: TBPublisher one: " + one);
+    console.log("JS: TBPublisher domId: " + this.domId);
+
     position = getPosition(this.domId);
+    console.log("JS: TBPublisher getPosition 1 - width: " + position.width);
+    console.log("JS: TBPublisher getPosition 1 - height: " + position.height);
+    console.log("JS: TBPublisher getPosition 1 - top: " + position.top);
+    console.log("JS: TBPublisher getPosition 1 - left: " + position.left);
     name = "";
     publishAudio = "true";
     publishVideo = "true";
     cameraName = "front";
     zIndex = TBGetZIndex(document.getElementById(this.domId));
+    console.log("JS: TBPublisher getPosition 1 - zIndex: " + zIndex);
     ratios = TBGetScreenRatios();
     audioFallbackEnabled = "true";
     audioBitrate = 40000;
@@ -393,6 +401,11 @@ TBPublisher = (function() {
       height: height
     });
     position = getPosition(this.domId);
+    console.log("JS: TBPublisher getPosition 2 - width: " + position.width);
+    console.log("JS: TBPublisher getPosition 2 - height: " + position.height);
+    console.log("JS: TBPublisher getPosition 2 - top: " + position.top);
+    console.log("JS: TBPublisher getPosition 2 - left: " + position.left);
+    console.log("JS: TBPublisher getPosition 2 - zIndex: " + zIndex);
     TBUpdateObjects();
     OT.getHelper().eventing(this);
     Cordova.exec(TBSuccess, TBError, OTPlugin, "initPublisher", [name, position.top, position.left, width, height, zIndex, publishAudio, publishVideo, cameraName, ratios.widthRatio, ratios.heightRatio, audioFallbackEnabled, audioBitrate, audioSource, videoSource, frameRate, resolution]);
