@@ -307,7 +307,7 @@ public class OpenTokAndroidPlugin extends CordovaPlugin
                 mSubscriber = new Subscriber(cordova.getActivity(), mStream);
                 mSubscriber.setVideoListener(this);
                 mSubscriber.setSubscriberListener(this);
-                //mSubscriber.setStyle(BaseVideoRenderer.STYLE_VIDEO_SCALE, BaseVideoRenderer.STYLE_VIDEO_FILL);
+                mSubscriber.setStyle(BaseVideoRenderer.STYLE_VIDEO_SCALE, BaseVideoRenderer.STYLE_VIDEO_FILL);
                 ViewGroup frame = (ViewGroup) cordova.getActivity().findViewById(android.R.id.content);
                 this.mView = mSubscriber.getView();
                 frame.addView(this.mView);
