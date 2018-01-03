@@ -226,7 +226,7 @@ public class OpenTokAndroidPlugin extends CordovaPlugin
                         .build();
                 mPublisher.setCameraListener(this);
                 mPublisher.setPublisherListener(this);
-                //mPublisher.setStyle(BaseVideoRenderer.STYLE_VIDEO_SCALE, BaseVideoRenderer.STYLE_VIDEO_FILL);
+                mPublisher.setStyle(BaseVideoRenderer.STYLE_VIDEO_SCALE, BaseVideoRenderer.STYLE_VIDEO_FILL);
                 mPublisher.setAudioFallbackEnabled(audioFallbackEnabled);
                 mPublisher.setPublishAudio(publishVideo);
                 mPublisher.setPublishAudio(publishAudio);
