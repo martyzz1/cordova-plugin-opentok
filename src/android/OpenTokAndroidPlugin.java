@@ -178,10 +178,15 @@ public class OpenTokAndroidPlugin extends CordovaPlugin
 
 
         public void destroyPublisher() {
-            ViewGroup parent = (ViewGroup) cordova.getActivity().findViewById(android.R.id.content);
-            parent.removeView(this.mView);
-            this.mPublisher.destroy();
-            this.mPublisher = null;
+            try {
+                ViewGroup parent = (ViewGroup) cordova.getActivity().findViewById(android.R.id.content);
+                parent.removeView(this.mView);
+                this.mPublisher.destroy();
+                this.mPublisher = null;
+            } catch (Exception e) { 
+                Log.e(TAG, "opentok died good luck");
+            } 
+
         }
 
         public void run() {
